@@ -1,0 +1,17 @@
+import random
+
+UserInput = input("Select rock, paper or scissors:")
+ComputerInput = random.choice(['rock','paper','scissors'])
+
+print("You pick:" , UserInput)
+print("Computer pick:", ComputerInput)
+if UserInput == "rock" and ComputerInput == "scissors":
+    print("Win")
+elif UserInput == "scissors" and ComputerInput == "paper":
+    print("Win")
+elif UserInput == "paper" and ComputerInput == "rock":
+    print("Win")
+elif UserInput == ComputerInput:
+    print("Draw")
+else:
+    print("Result: You lose or you are not following the rules.")
