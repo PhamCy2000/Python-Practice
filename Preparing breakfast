@@ -1,0 +1,32 @@
+import asyncio
+import time
+
+async def brewCoffee(): # return a coroutine object
+    print("Coffee is brewing")
+    await asyncio.sleep(1)
+    print("Coffee is ready")
+
+async def toastBagel(): # return a coroutine object
+    print("Bagel is toasting")
+    await asyncio.sleep(3)
+    print("Bagel is also ready")
+
+async def main():
+    start = time.time()
+
+    # Method 1: Run the task concurrently by creating tasks
+
+    # CoffeeTask = asyncio.create_task(brewCoffee()) 
+    # BagelTask = asyncio.create_task(toastBagel())
+    # await CoffeeTask
+    # await BagelTask
+    
+    # Method 2 Run the task concurrently and gather their values:
+
+    CoffeeDone, BagelDone = await asyncio.gather(brewCoffee(), toastBagel())
+
+    end = time.time()
+    
+    print('\n'"Time taken: ",end-start)
+
+asyncio.run(main())
